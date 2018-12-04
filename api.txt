@@ -1,0 +1,30 @@
+url：  ./list_articles
+参数： page(数字)
+如果page=-1，返回全部文档
+如果page!=1，返回对应页面结果，按发布时间排序
+
+结果：
+[
+	{
+		"title":"aa",
+		"pub_time":"2018-01-01",
+		"join_keyword":False,
+		"analysed":False
+	},
+	...
+]
+
+url:	./search_article
+参数	title(字符串)
+返回对应标题的正文信息
+结果：
+{
+	"title":"aa",
+	"text":"aa",
+	"pub_time":"2018-01-01",
+	"label_weight":{
+				"经济": 0.28,
+				"现代化": 0.51
+			},
+	"analysed":False
+}

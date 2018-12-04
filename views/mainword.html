@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>北京农林后台管理</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">-->
+    <link rel="stylesheet" href="assets/css/ready.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+    <style type="text/css">
+  .pagination li {
+      /*padding: 10px;*/
+     /*width:30px;*/
+  margin: 4px; }
+  .pagination li a {
+    color: #000;
+    background: #fff;
+    color: #000;
+    border: 1px solid #e6e6e6;
+    margin: 2px; 
+    padding:10px;
+    }
+    .pagination li a:first-child {
+      border: 1px solid #e6e6e6;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      border-radius: 2px; }
+    .pagination li a:hover, .pagination li a:focus {
+      background: #59d05d ;
+      color: #fff;
+      border: 1px solid #59d05d ; }
+    @media screen and (max-width: 768px) {
+      .pagination li a {
+        padding: 7px 15px; } }
+    .pagination li.active a {
+    background: #59d05d ;
+    border: 1px solid #59d05d ; }
+    .pagination li.active a:hover, .pagination li.active a:focus {
+      background: #59d05d ;
+      color: #fff;
+      border: 1px solid #59d05d ; }
+     /*模态框*/ 
+     .modal-dialog-centered {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (.5rem * 2));
+}
+/*@media (max-width: 576px)
+.modal-dialog-centered {
+    min-height: calc(100% - (1.75rem * 2));
+}*/
+@media (min-width: 576px){
+    .modal-dialog {
+    max-width: 1000px;
+    margin: 1.75rem auto;
+  }
+}
+@media (max-width: 576px){
+    .modal-dialog {
+    max-width: 400px;
+    margin: 1.75rem auto;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main-header" style="background-image: linear-gradient(160deg, #7A88FF, #bfe9ef);"></div>
+            <!--header end-->
+            <!--侧边导航-->
+            <div class="sidebar">
+                <div class="scrollbar-inner sidebar-wrapper" >
+                    <div class="user">
+                        <div class="info">
+                            <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">                               
+                                <span>                                   
+                                     <h6>
+                                         <i class="la la-dashboard" 
+                                             style="color:cornflowerblue;
+                                                    font-size: 24px; 
+                                                    margin-right:20px;">
+                                                    </i>整体概况</h6>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="info">
+                            <a class="" data-toggle="collapse" href="#collapseExample2" aria-expanded="true">
+                                <span>
+                                     <h6><i class="la la-paste" 
+                                             style="color:cornflowerblue;
+                                                    font-size: 24px; 
+                                                    margin-right:20px;">
+                                                    </i>文档处理</h6>                               
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <div class="clearfix"></div>
+
+                            <div class="collapse in" id="collapseExample2" aria-expanded="true" style="">
+                                <ul class="nav">
+                                    <li>
+                                        <a href="#profile">
+                                            <span class="link-collapse">文档浏览</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#edit">
+                                            <span class="link-collapse">文档详情</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="info">
+                            <a class="" data-toggle="collapse" href="#collapseExample3" aria-expanded="true">
+                                <span>
+                                     <h6><i class="la la-tags" 
+                                             style="color:cornflowerblue;
+                                                    font-size: 24px; 
+                                                    margin-right:20px;">
+                                                    </i>关键词及标签</h6>                               
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <div class="clearfix"></div>
+
+                            <div class="collapse in" id="collapseExample3" aria-expanded="true" style="">
+                                <ul class="nav">
+                                    <li>
+                                        <a href="#profile">
+                                            <span class="link-collapse">关键词</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#edit">
+                                            <span class="link-collapse">标签</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#edit">
+                                            <span class="link-collapse">图片</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="info">
+                            <a class="" data-toggle="collapse" href="#collapseExample3" aria-expanded="true">
+                                <span>
+                                     <h6><i class="la la-pagelines" 
+                                             style="color:cornflowerblue;
+                                                    font-size: 24px; 
+                                                    margin-right:20px;">
+                                                    </i>标签规则</h6>                               
+                                </span>
+                            </a>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+            
+            <!--content-->
+            <div class="main-panel">
+                <div class="content">
+                    <div class="container-fluid">
+                        <h4 class="page-title">关键词</h4>
+                        
+                        <!--动画 图表content-->
+                        <div class="row">                                                       
+                           <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <button class="btn btn-primary btn-border">解析文档生成关键词</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">文档名</th>
+                                                    <th scope="col">上传时间</th>
+                                                    <th scope="col">是否参与关键词构建</th>
+                                                    <th scope="col">是否解析</th>
+                                                    <th scope="col">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <i class="la la-file-text-o"></i>第5号文件xxxxxx
+                                                        
+                                                    </td>
+                                                    <td>2018-11-11 13:14:52</td>
+                                                    <td>是</td>
+                                                    <td>否</td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-round" 
+                                                                data-toggle="modal" 
+                                                                data-target="#modalUpdate">详情</button>
+                                                        <button class="btn btn-primary btn-border btn-round"
+                                                                data-toggle="modal" 
+                                                                data-target="#modalUpdate2"
+                                                            
+                                                            >解析</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <i class="la la-file-text-o"></i>第5号文件
+                                                        
+                                                    </td>
+                                                    <td>2018-11-11 13:14:52</td>
+                                                    <td>是</td>
+                                                    <td>否</td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-round">详情</button>
+                                                        <button class="btn btn-primary btn-border btn-round">解析</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <i class="la la-file-text-o"></i>第5号文件
+                                                        
+                                                    </td>
+                                                    <td>2018-11-11 13:14:52</td>
+                                                    <td>是</td>
+                                                    <td>否</td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-round">详情</button>
+                                                        <button class="btn btn-primary btn-border btn-round">解析</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                    </div>
+                         
+                                    <div class="card-header" style="border-top:1px solid lightgrey">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <button class="btn btn-success">上传新文档</button>
+                                            </div>
+                                            <div class="col-md-4 text-right">
+                                                <ul class="pagination">
+                                                    <li class="disabled"><a href="#">&laquo;</a></li>
+                                                    <li class="active"><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">&raquo;</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--版位-->
+                <footer class="footer" style="background-image: linear-gradient(240deg, #7A88FF, #bfe9ef);position: absolute;bottom: 0;width: 100%;">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        关于我们
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Help
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="copyright ml-auto"><p>Copyright &copy;| <a href="" style="text-decoration: none;">北京市农林科学院农业信息与经济研究所</a></p></div>              
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width: 1000px;margin: auto;">
+            <div class="modal-content">
+                <div class="modal-header" style="background-image: linear-gradient(160deg, #7A88FF, #bfe9ef);">
+                    <h6 class="modal-title">文档详情</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">第5号文件xx</div>
+                                        <span>发布时间：2018-01-23 </span>
+                                        <span>上传时间：2018-01-23 </span>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-head-bg-success">
+                                            <thead>
+                                                <tr>
+                                                    <th><p>文档标签：</p>
+                                                        <span> <i class="la la-file-text-o"></i>和平</span>
+                                                        <span> <i class="la la-file-text-o"></i>复兴</span>
+                                                        <span> <i class="la la-file-text-o"></i>和平</span>                                                        
+                                                    </th>
+                                                    
+                                                </tr>
+                                                <!--<tr>
+                                                    <th>权重：
+                                                        <span> <i class="la la-file-text-o"></i>和平</span>
+                                                        <span> <i class="la la-file-text-o"></i>复兴</span>
+                                                        <span> <i class="la la-file-text-o"></i>和平</span>                                                        
+                                                    </th>
+                                                    
+                                                </tr>-->
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><p>文档简述：</p><span>文艺复兴 </span><span>文艺复兴 </span><span>文艺复兴 </span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p>文档内容：</p>                                                                                                    
+                                                        <div >模态框（Modal）是覆盖在父窗体上的子窗体。通常，目的是显示来自一个单独的源的内容，可以在不离开父窗体的情况下有一些互动。子窗体可提供信息、交互等。如果您想要单独引用该插件的功能，那么您需要引用 modal.js。或者，正如 Bootstrap 插件概览 一章中所提到，您可以引用 bootstrap.js 或压缩版的 bootstrap.min.js。用法您可以切换模态框（Modal）插件的隐藏内容：通过 data 属性：在控制器元素（比如按钮或者链接）上设置属性 data-toggle="modal"，同时设置 data-target="#identifier" 或 href="#identifier" 来指定要切换的特定的模态框（带有 id="identifier"）。通过 JavaScript：使用这种技术，您可以通过简单的一行 JavaScript 来调用带有 id="identifier" 的模态框：
+                                                        </div>                                            
+                                                    </td>
+                                                    
+                                                </tr>                                               
+                                            </tbody>
+                                        </table>
+                                       
+                                    </div>
+                                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--model2-->
+    <!-- Modal -->
+    <div class="modal fade" id="modalUpdate2" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width: 1000px;margin: auto;">
+            <div class="modal-content">
+                <div class="modal-header" style="background-image: linear-gradient(160deg, #7A88FF, #bfe9ef);">
+                    <h6 class="modal-title">文档编辑</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">Form Control Styles</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="squareInput">Square Input</label>
+                                                <input type="text" class="form-control input-square" id="squareInput" placeholder="Square Input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="squareSelect">Square Select</label>
+                                                <select class="form-control input-square" id="squareSelect">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pillInput">Pill Input</label>
+                                                <input type="text" class="form-control input-pill" id="pillInput" placeholder="Pill Input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pillSelect">Pill Select</label>
+                                                <select class="form-control input-pill" id="pillSelect">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="solidInput">Solid Input</label>
+                                                <input type="text" class="form-control input-solid" id="solidInput" placeholder="Solid Input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="solidSelect">Solid Select</label>
+                                                <select class="form-control input-solid" id="solidSelect">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>                                          
+                                        </div>
+                                        <div class="card-action">
+                                            <button class="btn btn-success">Submit</button>
+                                            <button class="btn btn-danger">Cancel</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="assets/js/core/jquery.3.2.1.min.js"></script>
+<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/core/bootstrap.min.js"></script>
+<script src="assets/js/plugin/chartist/chartist.min.js"></script>
+<script src="assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+<script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+<script src="assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+<script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+<script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<script src="assets/js/ready.min.js"></script>
+<script src="assets/js/demo.js"></script>
+<script src="assets/js/header.js"></script>
+</html>
